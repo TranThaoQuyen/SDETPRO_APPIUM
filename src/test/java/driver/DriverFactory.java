@@ -16,9 +16,9 @@ public class DriverFactory implements MobileCapabilityTypeEx {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(PLATFORM_NAME, "Android");
         desiredCapabilities.setCapability(AUTOMATION_NAME, "uiautomator2");
-        desiredCapabilities.setCapability(UDID, "3300d3672cca62b9");
+        desiredCapabilities.setCapability(UDID, "192.168.52.103:5555");
         desiredCapabilities.setCapability(APP_PACKAGE, "com.wdiodemoapp");
-        desiredCapabilities.setCapability(APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
+        desiredCapabilities.setCapability(APP_ACTIVITY, ".MainActivity t7");
         URL appiumServer = null;
 
         try {
