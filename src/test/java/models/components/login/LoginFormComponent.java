@@ -3,9 +3,11 @@ package models.components.login;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class LoginFormComponent {
+
     private final AppiumDriver<MobileElement> appiumDriver;
     private final static By usernameSel = MobileBy.AccessibilityId("input-email");
     private final static By incorrectEmailTxtSel = MobileBy.xpath("//*[contains(@text, 'Please enter a valid email address')]");
@@ -17,6 +19,7 @@ public class LoginFormComponent {
         this.appiumDriver = appiumDriver;
     }
 
+    @Step("Input username as {usernameTxt}")
     public void inputUsername(String usernameTxt) {
         if (!usernameTxt.isEmpty()) {
             MobileElement usernameElem = appiumDriver.findElement(usernameSel);
@@ -29,6 +32,7 @@ public class LoginFormComponent {
         return appiumDriver.findElement(incorrectEmailTxtSel).getText();
     }
 
+    @Step("Input password as {passwordTxt}")
     public void inputPassword(String passwordTxt) {
         if (!passwordTxt.isEmpty()) {
             MobileElement passwordElem = appiumDriver.findElement(passwordSel);
@@ -41,7 +45,9 @@ public class LoginFormComponent {
         return appiumDriver.findElement(incorrectPasswordTxtSel).getText();
     }
 
+    @Step("Click on login button")
     public void clickOnLoginBtn() {
         appiumDriver.findElement(loginBtnSel).click();
     }
+
 }
